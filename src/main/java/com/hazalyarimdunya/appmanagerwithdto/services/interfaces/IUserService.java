@@ -9,7 +9,7 @@ import java.util.List;
 public interface IUserService {
     public DtoUser saveUser(DtoUserIU user); //Save isleminde DtoUserIU ggonderilir. DtoUser olarak responseta dondurulur.
     public List<DtoUser> getAllUsers();
-//    public User getUserById(Integer userId);
+    public DtoUser getUserById(Integer userId);
 //    public void deleteUserById(Integer id);
 //    public User updateUser(Integer userId,User updatedUser);
 }

@@ -44,15 +44,17 @@ public class UserServiceImpl implements IUserService {
             return dtoUserList;
         }
 
-//    @Override
-//    public User getUserById(Integer userId) {
-//        Optional<User> optional = iUserRepository.findById(userId);
-//        if (optional.isPresent()){
-//            return optional.get();
-//        }
-//        return null;
-//    }
-//
+    @Override
+    public DtoUser getUserById(Integer userId) {
+        DtoUser dtoUser = new DtoUser();
+        Optional<User> optional = iUserRepository.findById(userId);
+        if (optional.isPresent()){
+            User savedUser = optional.get();
+            BeanUtils.copyProperties(savedUser, dtoUser);
+        }
+        return dtoUser;
+    }
+
 //    @Override
 //    public void deleteUserById(Integer id) {
 //        User user = getUserById(id); //once kullaniciyi al

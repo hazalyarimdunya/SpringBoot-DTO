@@ -36,12 +36,12 @@ public class userControllerImpl implements IUserController { //requesti ilk kars
         return iUserService.getAllUsers();
     }
 
-//    @GetMapping(path = "/list/{id}" )
-//    @Override
-//    public User getUserById(@PathVariable(name = "id", required = true) Integer userId) {
-//        return iUserService.getUserById(userId);
-//    }
-//
+    @GetMapping(path = "/list/{id}" )
+    @Override
+    public DtoUser getUserById(@PathVariable(name = "id", required = true) Integer userId) {
+        return iUserService.getUserById(userId);
+    }
+
 //    @DeleteMapping(path = "/delete/{id}")
 //    @Override
 //    public void deleteUserById(@PathVariable(name = "id", required = true) Integer id) {
