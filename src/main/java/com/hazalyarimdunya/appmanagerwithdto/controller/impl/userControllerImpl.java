@@ -29,13 +29,13 @@ public class userControllerImpl implements IUserController { //requesti ilk kars
         //“HTTP request body’den gelen JSON’u al, otomatik olarak DtoUser nesnesine çevir ve bana parametre olarak ver.”
         return iUserService.saveUser(dtoUserIU);
     }
-//
-//    @GetMapping(path = "/list")
-//    @Override
-//    public List<DtoUser> getAllUsers() {
-//        return iUserService.getAllUsers();
-//    }
-//
+
+    @GetMapping(path = "/list")
+    @Override
+    public List<DtoUser> getAllUsers() {
+        return iUserService.getAllUsers();
+    }
+
 //    @GetMapping(path = "/list/{id}" )
 //    @Override
 //    public User getUserById(@PathVariable(name = "id", required = true) Integer userId) {
