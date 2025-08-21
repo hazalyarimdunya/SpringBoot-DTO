@@ -11,5 +11,5 @@ public interface IUserController {
     public List<DtoUser> getAllUsers();
     public DtoUser getUserById(Integer userId);
     public void deleteUserById(Integer id);
-//    public User updateUser(Integer userId , User updatedUser);
+    public DtoUser updateUser(Integer userId , DtoUserIU dtoUserIU);
 }

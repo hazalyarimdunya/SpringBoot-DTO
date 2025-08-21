@@ -63,15 +63,19 @@ public class UserServiceImpl implements IUserService {
         }
     }
 
-//    @Override
-//    public User updateUser(Integer userId, User updatedUser) {
-//        User user  = getUserById(userId);
-//        if (user!=null){
-//            user.setName(updatedUser.getName());
-//            user.setSurname(updatedUser.getSurname());
-//            user.setEmail(updatedUser.getEmail());
-//           return iUserRepository.save(user);
-//        }
-//        return null;
-//    }
+    @Override
+    public DtoUser updateUser(Integer userId, DtoUserIU dtoUserIU) {
+        DtoUser dtoUser = new DtoUser();
+        Optional<User> optional = iUserRepository.findById(userId);
+        if (optional.isPresent()){
+            User savedUser = optional.get();
+            savedUser.setName(dtoUserIU.getName());
+            savedUser.setSurname(dtoUserIU.getSurname());
+            savedUser.setEmail(dtoUserIU.getEmail());
+            User updatedUser =  iUserRepository.save(savedUser);
+            BeanUtils.copyProperties(updatedUser, dtoUser);
+           return dtoUser;
+        }
+        return null;
+    }
 }

@@ -48,11 +48,11 @@ public class userControllerImpl implements IUserController { //requesti ilk kars
         iUserService.deleteUserById(id);
     }
 
-//    @PutMapping(path = "/update/{id}")
-//    @Override
-//    public User updateUser(@PathVariable(name = "id") Integer userId,@RequestBody User updatedUser) {
-//        return iUserService.updateUser(userId, updatedUser);
-//    }
+    @PutMapping(path = "/update/{id}")
+    @Override
+    public DtoUser updateUser(@PathVariable(name = "id") Integer userId,@RequestBody DtoUserIU dtoUserIU) {
+        return iUserService.updateUser(userId, dtoUserIU);
+    }
 
 
 }
