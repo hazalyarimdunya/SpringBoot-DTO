@@ -10,6 +10,6 @@ public interface IUserService {
     public DtoUser saveUser(DtoUserIU user); //Save isleminde DtoUserIU ggonderilir. DtoUser olarak responseta dondurulur.
     public List<DtoUser> getAllUsers();
     public DtoUser getUserById(Integer userId);
-//    public void deleteUserById(Integer id);
+    public void deleteUserById(Integer id);
 //    public User updateUser(Integer userId,User updatedUser);
 }

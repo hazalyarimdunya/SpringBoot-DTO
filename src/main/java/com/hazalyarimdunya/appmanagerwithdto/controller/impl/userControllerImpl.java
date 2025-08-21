@@ -42,11 +42,12 @@ public class userControllerImpl implements IUserController { //requesti ilk kars
         return iUserService.getUserById(userId);
     }
 
-//    @DeleteMapping(path = "/delete/{id}")
-//    @Override
-//    public void deleteUserById(@PathVariable(name = "id", required = true) Integer id) {
-//        iUserService.deleteUserById(id);
-//    }
+    @DeleteMapping(path = "/delete/{id}")
+    @Override
+    public void deleteUserById(@PathVariable(name = "id", required = true) Integer id) {
+        iUserService.deleteUserById(id);
+    }
+
 //    @PutMapping(path = "/update/{id}")
 //    @Override
 //    public User updateUser(@PathVariable(name = "id") Integer userId,@RequestBody User updatedUser) {

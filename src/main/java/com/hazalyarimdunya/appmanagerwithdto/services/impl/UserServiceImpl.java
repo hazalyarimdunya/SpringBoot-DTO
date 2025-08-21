@@ -55,14 +55,14 @@ public class UserServiceImpl implements IUserService {
         return dtoUser;
     }
 
-//    @Override
-//    public void deleteUserById(Integer id) {
-//        User user = getUserById(id); //once kullaniciyi al
-//        if (user!=null){
-//            iUserRepository.delete(user); //sil
-//        }
-//    }
-//
+    @Override
+    public void deleteUserById(Integer id) {
+        Optional<User> optional = iUserRepository.findById(id); // yukardaki getUserById DtoUser turunde oldugundan isime yaramaz. Dbden yenisini cekiyorum.
+        if (optional.isPresent()){
+            iUserRepository.delete(optional.get()); //sil
+        }
+    }
+
 //    @Override
 //    public User updateUser(Integer userId, User updatedUser) {
 //        User user  = getUserById(userId);
