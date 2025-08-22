@@ -6,6 +6,7 @@ import com.hazalyarimdunya.appmanagerwithdto.dto.DtoUserIU;
 import com.hazalyarimdunya.appmanagerwithdto.entity.User;
 import com.hazalyarimdunya.appmanagerwithdto.repository.IUserRepository;
 import com.hazalyarimdunya.appmanagerwithdto.services.interfaces.IUserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class userControllerImpl implements IUserController { //requesti ilk kars
 
     @PostMapping(path = "/save")
     @Override
-    public DtoUser saveUser(@RequestBody DtoUserIU dtoUserIU){
+    public DtoUser saveUser(@RequestBody @Valid DtoUserIU dtoUserIU){
         //“HTTP request body’den gelen JSON’u al, otomatik olarak DtoUser nesnesine çevir ve bana parametre olarak ver.”
         return iUserService.saveUser(dtoUserIU);
     }

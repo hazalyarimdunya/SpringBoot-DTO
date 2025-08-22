@@ -35,7 +35,7 @@ public class UserServiceImpl implements IUserService {
     public List<DtoUser> getAllUsers() {
             //Tum userlari tek tek for ile bir listede toplayip donuyoruz.
             List<DtoUser> dtoUserList = new ArrayList<>(); //bos listemiz
-            List<User> userList = iUserRepository.findMyAllUserSql(); //user listemiz
+            List<User> userList = iUserRepository.findMyAllUserHql(); //user listemiz
             for (User user : userList){
                 DtoUser dtoUser = new DtoUser(); //bos dto lu user nesnesi.
                 BeanUtils.copyProperties(user, dtoUser);
@@ -47,7 +47,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public DtoUser getUserById(Integer userId) {
         DtoUser dtoUser = new DtoUser();
-        Optional<User> optional = iUserRepository.findMyAllUserByIdSql(userId);
+        Optional<User> optional = iUserRepository.findMyAllUserByIdHql(userId);
         if (optional.isPresent()){
             User savedUser = optional.get();
             BeanUtils.copyProperties(savedUser, dtoUser);
